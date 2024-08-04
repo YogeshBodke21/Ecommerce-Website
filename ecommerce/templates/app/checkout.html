@@ -1,0 +1,53 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} Checkout {% endblock %}
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 p-2">
+            <h4 class="text-center">Order Summary</h4>
+            <hr>
+            {% for item in cart_items %}
+            <div class="card border-secondary" style="height:30vh; width:40vw">
+                <div class="card-body">
+                    <h5>Product : {{item.product.title}}</h5>
+                    <img src="{{item.product.product_image.url}}" height="50rem">
+                    <p class="fw-bold">Price : {{item.product.discounted_price}}</p>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="fw-bold btn btn-warning mx-2">Total Amount = Total Cost + Rs. 40 = {{total_amount}}</div>
+        </div>
+        <div class="col-sm-4 offset-sm-1 p-2">
+            <h4 class="text-center">Select shopping address</h4>
+            <hr>
+            <form method="POST">
+                {% csrf_token %}
+                {% for ad in add %}
+                <div style="height:20vh;" class="card">
+                    <div class="card-body p-1">
+                        <h5>{{ad.name}}</h5>
+                        <p>Mobile No:{{ad.mobile}}</p>
+                        <p>{{ad.locality}}, {{ad.city}}, {{ad.pincode}}, {{ad.state}}</p>
+                    </div>
+                    
+                </div>
+                <div class="form-check mt-2 mb-5">
+                    <input class="form-label" type='radio' name="custid" id="custadd{{forloop.counter}}" value="{{ad.id}}">
+                    <label class="form-check-label fw-bold" for="custadd{{forloop.counter}}">Address: {{forloop.counter}}</label>
+                </div>
+                {% endfor %}
+                <div class="fw-bold btn btn-dark mx-2">Total Amount = {{total_amount}}</div><br><br>
+                {% comment %} <div class="form-check mt-2 mb-5 btn btn-warning">
+                    <div style="display:flex; justify-content:center; m-3"><label class="form-label px-3 fw-bold">Total Amount</label><p class="fw-bold ">{{total_amount}}</p></div>
+                </div> {% endcomment %}
+                <div class="text-end">
+                    <button type="submit" class='btn btn-warning fw-bold col-12 float-start'>Continue</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

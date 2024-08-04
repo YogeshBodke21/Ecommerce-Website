@@ -1,0 +1,37 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} About {% endblock %}
+
+{% block main %}
+<body class="bg-primary text-white">
+    <div class="container-fluid mt-4 bg- #232F3E" >
+        <div class="row">
+            <div class="col-sm-3 text-center fs-4 " style="font-family:Rajdhani; "><h3 class="title" >Who We Are ?<h3><img class="col-sm-10" src="{% static 'app/images/about.jpg'%}"></div>
+            <div class="col-sm-9  fs-4 " style="font-family:Rajdhani;">
+                ShopinglY is guided by four principles: customer obsession rather than competitor focus, passion for invention, commitment to operational excellence, and long-term thinking. We strives to be Earth’s most customer-centric company, Earth’s best employer, and Earth’s safest place to work. Customer reviews, 1-Click shopping, personalized recommendations, Prime, Fulfillment by  AWS, Kindle Direct Publishing, Kindle, Career Choice, Fire tablets, Fire TV, Amazon Echo, Alexa, Just Walk Out technology, Amazon Studios, and The Climate Pledge are some of the things pioneered by Amazon.</div>
+        </div><br><br>
+        <div class="row">
+            <div class="col-sm-3 text-center fs-4 mt-2 " style="font-family:Rajdhani; "><h4 class="alert-heading">Recognition<h4></div>
+            <div class="col-sm-9  fs-4 mt-2 " style="font-family:Rajdhani;">
+                Since day one we have strived to be the Earth’s most customer-centric company. We’re honored to be recognised for the work we do on behalf of our customers, employees, and communities around the world.</div>
+        </div><br><br>
+        <div class="row">
+            <div class="col-sm-3 text-center fs-4 mt-2 " style="font-family:Rajdhani; "><h4 class="alert-heading">Missions<h4></div>
+            <div class="col-sm-9  fs-4 mt-2 " style="font-family:Rajdhani;">
+                1. Customer obsession over competitor focus<br>
+                2. A passion for invention<br>
+                3. A commitment to operational excellence<br>
+                4. Long-term thinking<br><br>
+
+                The company’s efforts are on full display through their ecommerce operations, as well as their forays into technology, entertainment, and environmental initiatives like The Climate Pledge.</div>
+        </div><br><br>
+    </div>
+
+</body>
+{% endblock%}
+
+{% block footer%}
+<footer class="container-fluid text-white text-center bg-dark py-2 ">
+    Copyright : 2024 | developed by : Yogesh Bodke
+</footer>
+{% endblock %}

@@ -1,0 +1,48 @@
+
+.gfg {
+  position: relative;
+}
+
+/*This CSS code is defining the
+styles for a container that holds text*/
+.text-container {
+  position: absolute;
+  color: rgb(0, 0, 0);
+  margin-left:10%;
+  top: 18rem;
+  width:80%;
+  background-color: rgba(249, 249, 249, 0.8);
+  padding: 0.5 1rem;
+} 
+.sec{
+  background-color: #232F3E;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card{
+  border:2px solid black;
+  width:320px;
+  height: 52vh;
+  margin: 1rem;
+  padding: 0.3rem;
+  background-size: cover;
+  border-radius: 1rem;
+}
+
+.watch{
+  height: 70%;
+  margin: 0.5rem;
+  border-radius: 2px;
+  background-size: cover;
+}
+
+.watch:hover{
+  transform: scale(1.03);
+}
+
+h4, a {
+  padding-left: 4px;
+}
+

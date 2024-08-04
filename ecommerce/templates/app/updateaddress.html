@@ -1,0 +1,21 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} Address {% endblock %}
+
+{% block main %}
+<div class="container my-5">
+    <div class="row">
+        <h4>Welcome, <span>{{request.user}}!!</span></h4>
+        <div class="col-sm-8 m-3 ">
+            <form method="POST">
+                {% csrf_token %}
+                {% for fm in form %}
+                {{fm.label_tag}}{{fm}}<small class="text-danger"> {{fm.errors}}</small><br>
+                {% endfor %}
+                <div><input type="submit" value="Update" class="btn btn-primary">
+                    <a type="button" href ="{% url 'address'%}" class="btn btn-danger">Back</a></div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

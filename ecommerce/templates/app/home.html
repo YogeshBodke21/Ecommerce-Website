@@ -1,0 +1,103 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} Home {% endblock %}
+
+
+{% block banner %}
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner big">
+      <div class="carousel-item active  gfg" >
+          <img src="{% static 'app/images/banner/big.jpg' %}" class="d-block w-100 pos" alt="banner" height=450rem;>
+          <div class="text-container">
+            <h4 class="text-center fs-4">Welcome to the India's number one E-Commerce platform...!!</h4>
+            <p class="text-center fs-0.01">You are on shoppinglY.com. You can shop here for millions of products with fast local delivery.</p>
+          </div>
+      </div>
+      <div class="carousel-item  gfg">
+        <img src="{% static 'app/images/banner/big2.jpg' %}" class="d-block w-100" alt="banner" height=450rem; >
+        <div class="text-container">
+          <h4 class="text-center fs-4">Welcome to the India's number one E-Commerce platform...!!</h4>
+          <p class="text-center fs-0.01">You are on shopinglY.com. You can shop here for millions of products with fast local delivery.</p>
+        </div>
+      </div>
+      <div class="carousel-item gfg ">
+        <img src="{% static 'app/images/banner/big4.jpg' %}" class="d-block w-100" alt="banner" height=450rem;>
+        <div class="text-container">
+          <h4 class="text-center fs-4">Welcome to the India's number one E-Commerce platform...!!</h4>
+          <p class="text-center fs-0.01">You are on shopinglY.com. You can shop here for millions of products with fast local delivery.</p>
+        </div>
+      </div> 
+      <div class="carousel-item gfg">
+        <img src="{% static 'app/images/banner/big3.jpg' %}" class="d-block w-100" alt="banner" height=450rem;>
+        <div class="text-container">
+          <h4 class="text-center fs-4">Welcome to the India's number one E-Commerce platform...!!</h4>
+          <p class="text-center fs-0.01">You are on shopinglY.com. You can shop here for millions of products with fast local delivery.</p>
+        </div>
+      </div>
+      <div class="carousel-item  gfg">
+        <img src="{% static 'app/images/banner/big5.jpg' %}" class="d-block w-100" alt="banner" height=450rem;>
+        <div class="text-container">
+          <h4 class="text-center fs-4">Welcome to the India's number one E-Commerce platform...!!</h4>
+          <p class="text-center fs-0.01">You are on shopinglY.com. You can shop here for millions of products with fast local delivery.</p>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="sec">
+  <div class="card">
+      <h4>Mobiles</h4>
+      <img src="{% static 'app/images/mobile.jpg'%}" class="watch">
+      <a href="{% url 'category' 'MB'%}">see more..</a>
+  </div>
+  <div class="card">
+    <h4>Toys</h4>
+    <img src="{% static 'app/images/toys.jpg'%}" class="watch">
+    <a href="{% url 'category' 'TY'%}">see more..</a>
+  </div>
+  <div class="card">
+    <h4>Laptops</h4>
+    <img src="{% static 'app/images/laptop.jpg'%}" class="watch">
+    <a href="{% url 'category' 'LP'%}">see more..</a>
+  </div>
+  <div class="card">
+    <h4>Headphones</h4>
+    <img src="{% static 'app/images/headphones.jpg'%}" class="watch">
+    <a href="{% url 'category' 'HD'%}">see more..</a>
+  </div>
+</div>
+<div class="sec">
+  <div class="card">
+    <h4>Watch</h4>
+    <img src="{% static 'app/images/watch.jpg'%}" class="watch">
+    <a href="{% url 'category' 'WT'%}">see more..</a>
+  </div>
+  <div class="card">
+    <h4>Personal Care</h4>
+    <img src="{% static 'app/images/personalcare.jpg'%}" class="watch">
+    <a href="{% url 'category' 'PC'%}">see more..</a>
+  </div>
+  <div class="card">
+    <h4>Shoes</h4>
+    <img src="{% static 'app/images/shoes.jpg'%}" class="watch">
+    <a href="{% url 'category' 'SH'%}">see more..</a>
+  </div>
+  <div class="card">
+    <h4>Stationary</h4>
+    <img src="{% static 'app/images/education.jpg'%}" class="watch">
+    <a href="{% url 'category' 'EC'%}" class="text-decoration-none">see more..</a>
+  </div>
+</div>
+
+{% endblock  %}
+
+
+{% block main %}
+
+{% endblock %}
+{% block footer %}
+<footer class="container-fluid text-white text-center bg-dark py-2 ">
+  Copyright : 2024 | developed by : Yogesh Bodke
+</footer>
+ {% endblock %}
+

@@ -1,0 +1,84 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} cart-details {% endblock %}
+{% block design %} 
+<style>
+    .wrapper{
+        height : 7vh;
+        width: 50;
+        padding-top: 0.4rem;
+        align-items : center;
+        font-size : 20px;
+        font-weight:600;
+        justify-content : center;
+        border-radius:12px;
+      }
+    .wrapper span{
+        width :100%;
+        font-size : 20px;
+        font-weight:600;
+        cursor : pointer;
+    }
+    .minus, .plus{
+        background-color: black;
+        border-radius: 8px;
+        color:white;
+        justify-content : center;
+        align-items:center;
+        padding-bottom:0.3rem;
+        cursor : pointer;
+    }
+</style>
+{% endblock %}
+
+{% block main %}
+
+<h2 class="text-center py-2">Shopping Cart</h2>
+
+<div class="row">
+    <div class="col-sm-8">
+        {% for product in products %}
+        <div class=" text-centre mb-5 mx-2">
+            <div class="row my-2 px-5 ">
+                <div class="col-sm-6 my-5">
+                    <img src="{{ product.product.product_image.url }}" width="200px" height="200px" class="view"/>
+                </div>
+                <div class="col-sm-6 my-5">
+                    <h4 class="fw-title">{{product.product.title}}</h4>
+                    <p class="fw-title">{{product.product.description}}</p>
+                    <h5 class="fw-title text-danger">
+                    Rs {{product.product.discounted_price}}/-</h5>
+                    <h6 class="fw-light text-decoration-line-through">{{product.product.selling_price}}</h6>
+                    <div class="my-3">
+                        <label for="quantity">Quantity : </label>
+                        <a class="minus-cart btn " pid={{product.product.id}}><i class="fas fa-minus-square fa-lg"></i></a>
+                        <span>{{product.quantity}}</span>
+                        <a class="plus-cart btn " pid={{product.product.id}}><i class="fas fa-plus-square fa-lg"></i></a>
+                    </div>
+                </div>
+                <a href="{% url 'delete-cart' product.product.id %}" class="btn btn-secondary">Remove Item</a>
+            </div>  
+        </div>
+        {% endfor %}
+    </div>
+    <div class="col-sm-4 my-2">
+        <div class="card">
+            <div class="card-body">
+                <h5>Total amount of<h5><br>
+                <ul class="list-group">
+                    <li class="list-group-item justify-content-between d-flex border-0 px-0 pb-0">Amount<span>  {{amount}}</span></li><br>
+                    <li class="list-group-item d-flex justify-content-between border-0 px-0 pb-0">Shipping<span>  Rs. 40.00</span></li><br>
+                    <li class="list-group-item d-flex justify-content-between border-0 px-0 pb-0">
+                        <strong>Total</strong><small>(including GST)</small>
+                        <span>{{total_amount}}</span>
+                    </li>
+                </ul><br><br>
+                <div class="d-grid"><a href="{% url 'checkout' %}" class="btn btn-primary">Place Order</a></div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
+{% endblock %}
+{% block dj %} 
+{% endblock %}

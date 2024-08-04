@@ -1,0 +1,40 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} Product-details {% endblock %}
+
+{% block main %}
+
+<div class="container-fluid">
+    <div class="row gx-7">
+        <div class="col-sm-4 mt-5">
+            <img src="{{product.product_image.url}}"  class="figure-img img-fluid rounded"/>
+        </div>
+        <div class="col-sm-6 ">
+        <div class=>
+            <h1 style=" Font-size:40px; margin-left:20px;">{{product.title}}</h1><hr>
+            <h5>Rs {{product.discounted_price}}/-</h5>
+            <small class="text-decoration-line-through text-muted fs-5"><del>Rs {{product.selling_price}}/-</del></small>
+            <br><br><h4>Product Features</h4>
+            <ul>
+                <li style="font-family:Rajdhani;">{{product.description}}</li>
+            </ul><br><br>
+            {% if request.user.is_authenticated %}
+            <form method="post" action="/add-to-cart">
+                {% csrf_token %}
+                <div class="button row flex" style="Font-Family: Rajdhani; ">
+                    <input type="hidden" name="product_id" value="{{product.id}}" > 
+                    <button type="submit" class="btn btn-danger btn-lg p-1 m-1 text-white">Add to Cart</button>
+                    <div class="btn btn-dark p-1 m-1 btn-lg"><a  href="#" class="text-decoration-none text-white">Buy Now</a></div>
+                </div>
+            </form>
+            {%else%}
+            <div class="button row flex" style="Font-Family: Rajdhani; ">
+                <input type="hidden" name="product_id" value="{{product.id}}" > 
+                <button type="submit" class="btn btn-danger btn-lg p-1 m-1 text-white">Add to Cart</button>
+                <div class="btn btn-dark p-1 m-1 btn-lg"><a  href="{% url "registration" %}" class="text-decoration-none text-white">Buy Now</a></div>
+            </div>
+            {%endif%}
+        </div>
+    </div>
+</div>
+{% endblock %}
