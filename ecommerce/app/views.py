@@ -191,6 +191,12 @@ class Checkout_view(View):
             amount = amount + value
         total_amount = amount + 40
         return render (request, 'app/checkout.html', locals())
+    
+
+def search(request):
+    query = request.GET.get('query')
+    products = Product.objects.filter(title__icontains=query)
+    return render(request, 'app/search.html', {'products': products})
 
 
     

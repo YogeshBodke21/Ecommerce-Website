@@ -49,9 +49,9 @@
                 <a class="nav-link active " href="{% url 'contact'%}" aria-disabled="true">Contact Us</a>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-4" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-warning me-2" type="submit">Search</button>
+            <form method="get" action="/search" class="d-flex" role="search">
+              <input class="form-control me-4" name="query" id="query" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-warning me-2" id="query2" type="submit">Search</button>
             </form>
           </div>
         {% if request.user.is_authenticated %}

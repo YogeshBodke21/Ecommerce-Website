@@ -1,0 +1,40 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} Search {% endblock %}
+{% block design %}
+<style>
+.view:hover{
+    transform:scale(1.03);
+}
+
+</style>
+{% endblock %}
+{% block main %}
+<div class="container my-4">
+    <div class="row">
+        {% comment %} <div class="col-sm-3">
+            <div class="list-group">
+            {% for i in title %}
+            <a href="#" class="list-group-item list--group-item-action" aria-current="true">{{i.title}}</a>
+            {% endfor %}
+            </div>
+        </div> {% endcomment %}
+        <div class="col-sm-10 offset-1" >
+            <div class="row">
+                {% for p in products %}
+                <div class="col text-centre mb-5 mx-2">
+                <a href="{% url 'product-detail' p.id %}" class="btn">
+                    <img src="{{ p.product_image.url }}" width="250px" height="250px" class="view"/>
+                    <h4 class="fw-title">{{p.title}}</h4>
+                    <h5 class="fw-title text-danger">
+                    Rs {{p.discounted_price}}/-</h5>
+                        <h6 class="fw-light text-decoration-line-through">{{p.selling_price}}</h6>
+                </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

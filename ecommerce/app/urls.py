@@ -22,6 +22,9 @@ urlpatterns = [
     path('checkout/', Checkout_view.as_view(), name="checkout"),
     path('plusc/', plus_cart, name="plusc"),
 
+    #search
+    path('search', search, name='search'),
+
 
     #login authentication urls
     path('registration/', CustomerRegistrationView.as_view(), name='registration'),
